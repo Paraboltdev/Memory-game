@@ -55,7 +55,10 @@ const Memory = () => {
       if(firstCard.type && secondCard.type ){
         const match = firstCard.type ===secondCard.type;
         match ? disableCards(): unflipCards()
-        
+        setFlips(flips + 1);
+        if(match){
+          setScore(score +1)
+        }
       }
     }
 
@@ -79,8 +82,8 @@ const Memory = () => {
   return (
   <div className='container'>
   <div className='score'>
-      <p onChange={handleChange}>Score:{score}</p>
-      <p>Flips:{flips}</p>
+      <p onChange={handleChange}>Score: {score}</p>
+      <p>Flips: {flips}</p>
   </div>
     <div className='card-table'>
     {cards.map((card, index, )=>(
